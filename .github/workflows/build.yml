@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     # Only runs once you've added the two secrets below (Settings > Secrets and variables >
     # Actions). Until then this job is skipped -- the APK still builds fine without it.
-    if: ${{ vars.SUPABASE_PROJECT_REF != '' }}
+    if: ${{ secrets.SUPABASE_PROJECT_REF != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -55,5 +55,5 @@ jobs:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: |
           npx supabase@latest functions deploy process-call \
-            --project-ref "${{ vars.SUPABASE_PROJECT_REF }}" \
+            --project-ref "${{ secrets.SUPABASE_PROJECT_REF }}" \
             --no-verify-jwt
