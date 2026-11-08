@@ -71,8 +71,8 @@ jobs:
 
       - name: Deploy process-call
         working-directory: AIVoicemail
-        run: supabase functions deploy process-call --project-ref "$SUPABASE_PROJECT_REF" --no-verify-jwt
+        run: supabase functions deploy process-call --remote="$SUPABASE_PROJECT_REF" --no-verify-jwt --yes
 
       - name: Deploy respond-to-turn
         working-directory: AIVoicemail
-        run: supabase functions deploy respond-to-turn --project-ref "$SUPABASE_PROJECT_REF" --no-verify-jwt
+        run: supabase functions deploy respond-to-turn --remote="$SUPABASE_PROJECT_REF" --no-verify-jwt --yes
